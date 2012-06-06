@@ -22,19 +22,15 @@ module Ringo
       end
 
       def stories
-        Ringo::StoryCard.from_result get 'cards.xml'
+        Ringo::StoryCard.from_result get 'cards.xml', {:order=> "ASC"}
       end
 
-      def get url
-        uri = URI("https://#{host}/api/v2/projects/#{project}/#{url}")
+      def base
+        "https://#{host}/api/v2/projects/#{project}".to_uri(username: user, password: password)
+      end
 
-        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
-          request = Net::HTTP::Get.new uri.request_uri
-          request.basic_auth user, password
-          http.request request # Net::HTTPResponse object
-        end
-
-        Nokogiri::XML response.body
+      def get url, params={}
+        Nokogiri::XML base[url].get(params).body
       end
     end
   end
