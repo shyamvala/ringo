@@ -22,7 +22,8 @@ module Ringo
       end
 
       def stories
-        Ringo::StoryCard.from_result get 'cards.xml', {:order=> "ASC"}
+        filter = {'view' => 'Story Wall'}
+        Ringo::StoryCard.from_result get 'cards.xml', filter
       end
 
       def base

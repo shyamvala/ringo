@@ -1,5 +1,5 @@
 desc 'Returns a list of the stories currently in development'
 require './lib/ringo'
 task :stories do
-  Ringo::Emitter.emit Ringo::Mingle.stories
+  Ringo::Emitter.emit Ringo::Mingle.stories.select { |story| story.status == 'In Dev' }
 end
