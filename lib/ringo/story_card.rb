@@ -24,8 +24,16 @@ module Ringo
       properties.detect { |property| property.name == 'Status' }.value
     end
 
-    def to_emit
-      "##{number} - #{status} - #{name}"
+    def to_emit(max=1000)
+      "##{number} - #{name}"[0..max]
+    end
+
+    def to_hash
+      {
+        name: name[0..30],
+        number: number,
+        status: status
+      }
     end
   end
 
