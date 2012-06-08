@@ -4,6 +4,7 @@ describe Ringo::StoryCard do
   let(:name) { 'Create user' }
   let(:number) { 101 }
   let(:properties) { [Ringo::Property.new('Status', 'In Development')] }
+
   subject { Ringo::StoryCard.new name, number, properties }
 
   its(:name) { should == name }
