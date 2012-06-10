@@ -10,3 +10,9 @@ rake stories
 </pre>
 
 This command returns a list of the stories currently in development.
+
+<pre>
+rake wall
+</pre>
+
+This command returns a formatted story wall from Ready for Dev to In QA.
