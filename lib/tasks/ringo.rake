@@ -8,22 +8,14 @@ end
 desc 'Gets the story wall from Ready for Dev to In QA'
 task :wall do
   STATUSES = ['Ready for Dev', 'In Dev', 'UX Review', 'Ready for QA', 'In QA']
-  collect = {}
-  stories = Ringo::Mingle.stories
+  wall = Ringo::Mingle.wall
 
-  stories.each do |story|
-    next unless STATUSES.include? story.status
-    collect[story.status] ||= []
-    collect[story.status] << story
-  end
-
-
-  longest = collect.map { |key, value| value.size }.max
+  longest = wall.map { |key, value| value.size }.max
   table = []
   (0...longest).each do |index|
     row = {}
-    collect.keys.each do |key|
-      val = collect[key][index]
+    wall.keys.each do |key|
+      val = wall[key][index]
       row[key] = val.to_emit(20) if val
     end
     table << row

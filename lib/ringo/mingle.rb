@@ -26,6 +26,18 @@ module Ringo
         Ringo::StoryCard.from_result get 'cards.xml', filter
       end
 
+      def wall
+        result = {}
+
+        stories.each do |story|
+          next unless STATUSES.include? story.status
+          result[story.status] ||= []
+          result[story.status] << story
+        end
+
+        result
+      end
+
       def base
         "https://#{host}/api/v2/projects/#{project}".to_uri(username: user, password: password)
       end
