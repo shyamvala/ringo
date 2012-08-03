@@ -1,5 +1,3 @@
-require './lib/ringo'
-
 namespace :ringo do
   desc 'Returns a list of the stories currently in development'
   task :stories do
