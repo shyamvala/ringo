@@ -1,3 +1,8 @@
+require 'nokogiri'
+require 'yaml'
+require 'net/http'
+require 'wrest'
+
 module Ringo
   class Mingle
     class << self

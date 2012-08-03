@@ -1,9 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'nokogiri'
-gem 'formatador'
-gem 'wrest'
-
-group :test do
-  gem 'rspec'
-end
+# Specify your gem's dependencies in ringo.gemspec
+gemspec

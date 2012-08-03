@@ -1,7 +1,6 @@
-require 'nokogiri'
-require 'net/http'
-require 'yaml'
-require 'wrest'
-require 'formatador'
-
-Dir['./lib/**/*.rb'].each { |f| require f }
+require 'ringo/emitter'
+require 'ringo/mingle'
+require 'ringo/property'
+require 'ringo/story_card'
+require 'ringo/version'
+require 'ringo/railtie' if defined?(Rails)

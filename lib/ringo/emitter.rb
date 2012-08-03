@@ -1,3 +1,5 @@
+require 'formatador'
+
 module Ringo
   class Emitter
     class << self

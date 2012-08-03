@@ -1,1 +1,2 @@
-import './lib/tasks/ringo.rake'
+#!/usr/bin/env rake
+require "bundler/gem_tasks"
