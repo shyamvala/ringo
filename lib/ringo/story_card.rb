@@ -12,6 +12,18 @@ module Ringo
       end
     end
 
+    def self.from_card card_result
+      card_node = card_result.css('card')
+      properties = card_node.css('property').map do |property_node|
+        Property.from_result property_node
+      end
+
+      name = card_node.at_css('name').text if card_node.at_css('name')
+      number = card_node.at_css('number').text if card_node.at_css('number')
+
+      StoryCard.new name, number, properties
+    end
+
     attr_reader :name, :number, :properties
 
     def initialize name, number, properties

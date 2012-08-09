@@ -31,6 +31,10 @@ module Ringo
         Ringo::StoryCard.from_result get 'cards.xml', filter
       end
 
+      def story number
+        Ringo::StoryCard.from_card get "cards/#{number}.xml"
+      end
+
       def wall
         result = {}
 
